@@ -8,6 +8,7 @@ public class ViewCommand{
 
     public AppendCommand(Document doc){
 
+        in = new Scanner(System.in);
     }
 
     public String execute(){
