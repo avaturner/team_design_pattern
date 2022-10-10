@@ -1,4 +1,4 @@
-package command;
+package team_design_pattern;
 
 import java.io.File;
 import java.io.FileWriter;
