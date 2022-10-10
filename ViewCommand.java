@@ -7,7 +7,7 @@ import command.FileManipulator;
 public class ViewCommand{
 
     public ViewCommand(Document doc){
-        execute();
+       
     }
 
     public String execute(){
