@@ -8,8 +8,7 @@ public class SaveCommand{
     }
 
     public String execute(){
-        
-        document.save();
-        return "Document has been saved.";
+
+        return Document.save();
     }
 }
