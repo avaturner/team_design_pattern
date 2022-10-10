@@ -1,4 +1,4 @@
-//package team_design_pattern;
+package team_design_pattern;
 
 import java.util.*;
 
@@ -10,16 +10,32 @@ public class Document {
      * Sets the name of document and reads the file
      * @param name is the name of the document
      */
-    private Document(String fileName) {
+    Document(String fileName) {
         this.fileName = fileName;
-        FileManipulator.readFile(fileName);
+        lines = FileManipulator.readFile(fileName);
     }
 
     /**
      * Views the document by ...
      */
     public String view() {
-        return "Document " + this.filename + " is viewed";
+        int linesCount = 0;
+        String output = null;
+
+        for(int i = 0; i < lines.size();i++) {
+            if(lines.get(i).length() > linesCount)
+                linesCount = lines.get(i).length();
+        }
+        
+        for(int i = 0; i < linesCount; i++) {
+            output += "-";
+        }
+            
+
+        for(int i = 0; i < lines.size(); i++) {
+            output += ("\n|     " + lines.get(i) + "     |");       
+        } 
+        return output;
     }
 
     /**
@@ -29,7 +45,7 @@ public class Document {
      */
     public String append(String line) {
         this.lines.add(line);
-        return "Document " + this.filename + " is appended";
+        return "Document " + fileName + " is appended";
     }
 
     /**
@@ -40,7 +56,7 @@ public class Document {
     public String write(String line) {
         this.lines = null;
         this.lines.add(line);
-        return "Document " + this.filename + " is written";
+        return "Document " + fileName + " is written";
     }
 
     /**
