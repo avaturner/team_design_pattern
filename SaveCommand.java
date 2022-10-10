@@ -4,9 +4,12 @@ public class SaveCommand{
 
     public SaveCommand(Document doc){
 
+        this.doc = doc;
     }
 
     public String execute(){
-        return "";
+        
+        document.save();
+        return "Document has been saved.";
     }
 }
