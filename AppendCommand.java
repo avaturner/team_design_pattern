@@ -15,7 +15,7 @@ public class ViewCommand{
 
     public String execute(){
 
-        System.out.println("What do you want to append to the list?");
+        System.out.println("What do you want to append?");
         String appendString = in.nextLine();
         document.append(appendString);
         return "The line has been appended to the document";
