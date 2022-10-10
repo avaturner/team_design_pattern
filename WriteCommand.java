@@ -8,9 +8,13 @@ public class WriteCommand {
 
     public WriteCommand(Document doc){
         in = new Scanner(System.in);
+        this.doc = doc;
     }
 
     public String execute(){
-        return "";
+        System.out.println("What did you want to write?");
+        String writeString = in.nextLine();
+        document.write(writeString);
+        return "The line was written to the file.";
     }
 }
