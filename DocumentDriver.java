@@ -1,4 +1,4 @@
-package team_design_pattern;
+package command;
 
 import java.util.Scanner;
 

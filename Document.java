@@ -2,43 +2,56 @@ import java.util.*;
 
 
 public class Document {
-    private String filename;
+    private String fileName;
     private ArrayList<String> lines;
     /**
-     * Sets the name of document and prints out that it has been created
-     *
+     * Sets the name of document and reads the file
      * @param name is the name of the document
      */
-    private Document(String name) {
-        this.filename = filename;
-        System.out.println("Document named " + this.filename + " is created");
+    private Document(String fileName) {
+        this.fileName = fileName;
+        FileManipulator.readFile(fileName);
     }
 
     /**
-     * Loads document into view
+     * Views the document by ...
      */
-    public void View() {
-        System.out.println("Document " + this.filename + " is  into view the document");
+    public String view() {
+        return "Document " + this.filename + " is viewed";
     }
 
     /**
-     * it append to the document
+     * Appends to the document by adding the line in the parameter to the end of the document
+     * @param line The new line being appended to the document
+     * @return informing the user that the document was appended
      */
-    public void append() {
-        System.out.println("Document " + this.filename + " is being append");
+    public String append(String line) {
+        this.lines.add(line);
+        return "Document " + this.filename + " is appended";
     }
 
     /**
-     * it writes to the documents
+     * Writes to the document by clearing the original document array list, and adding the new line
+     * @param line The new line being written to the document
+     * @return informing the user that the document was written
      */
-    public void Write() {
-        System.out.println("Document " + this.filename + " is writes to the document");
+    public String write(String line) {
+        this.lines = null;
+        this.lines.add(line);
+        return "Document " + this.filename + " is written";
     }
 
     /**
-     * saves the document
+     * Saves the document by writing to the file
+     * @return Informs the user if the file was able to be saved
      */
-    public void Save() {
-        System.out.println("Document " + this.filename + " is saved ");
+    public String save() {
+        if (lines != null){
+            FileManipulator.writeFile(fileName, lines);
+            return "Your file has been saved.";
+        }
+        else{
+            return "Sorry, we cannot save your file at this time.";
+        }
     }
 }
